@@ -35,13 +35,13 @@ A comprehensive collection of **BE Computer Engineering codes** written in **Pyt
 
 ---
 
-## ⚙️ Getting Started
+## 🧭 Getting Started
 
-### Clone the Repository
+### 📥 Clone the Repository
 ```bash
 git clone https://github.com/swanandjoshi30/BE_compcodes.git
 cd BE_compcodes
-Run a Program
+▶️ Run a Program
 bash
 Copy code
 python filename.py
@@ -65,8 +65,8 @@ DAA Python Programs,
 BCT Python Codes,
 Design and Analysis of Algorithms BE,
 Python Algorithm Collection,
-BE Comp Sem 7 Codes,
-swanand BE Comp Repository,
+BE Comp Sem 5 Codes,
+Boss BE Comp Repository,
 Computer Engineering Practical Codes,
 Swanand Joshi Python Projects
 
@@ -81,10 +81,13 @@ Commit and push your changes
 
 Submit a pull request
 
+🧾 License
+This repository currently has no license.
+To allow others to use and share your code responsibly, add a license (e.g., MIT License).
 
 👨‍💻 Author & Maintainer
-Swanand (Contributor & Maintainer)
-📧 Contact: [swanandofficial@gmail.com]
+Boss (Contributor & Maintainer)
+📧 Contact: [swanandjoshiofficial@gmail.com]
 💻 GitHub: @swanandjoshi30
 
 ⭐ Support the Project
