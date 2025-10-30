@@ -1,76 +1,76 @@
-# Function to print the chessboard
-def print_board(board, number_of_queens):
-    for row in range(number_of_queens):
-        for column in range(number_of_queens):
-            print(board[row][column], end=" ")
-        print()
-    print("\n")  # Blank line for better readability
+# Function to try placing queens on the board
+def placeQueens(i, cols, leftDiagonal, rightDiagonal, cur):
+    n = len(cols)  # Get the size of the board
 
-
-# Function to check if a queen can be placed safely at board[row][column]
-def is_safe(board, row, column, number_of_queens):
-    # Check the same column above
-    for i in range(row):
-        if board[i][column] == 1:
-            return False
-
-    # Check the upper left diagonal
-    i = row - 1
-    j = column - 1
-    while i >= 0 and j >= 0:
-        if board[i][j] == 1:
-            return False
-        i -= 1
-        j -= 1
-
-    # Check the upper right diagonal
-    i = row - 1
-    j = column + 1
-    while i >= 0 and j < number_of_queens:
-        if board[i][j] == 1:
-            return False
-        i -= 1
-        j += 1
-
-    return True
-
-
-# Function to solve the N-Queens problem using backtracking
-def solve_n_queens(board, current_row, number_of_queens):
-    # Base case: If all queens are placed
-    if current_row == number_of_queens:
-        print_board(board, number_of_queens)
+    # If all queens are placed, return True
+    if i == n:
         return True
 
-    # Try placing a queen in each column for the current row
-    solution_found = False
-    for column in range(number_of_queens):
-        if is_safe(board, current_row, column, number_of_queens):
-            board[current_row][column] = 1  # Place queen
+    # Try placing a queen in each column of the current row
+    for j in range(n):
+        # Skip if the column or diagonal is already occupied
+        if cols[j] or rightDiagonal[i + j] or leftDiagonal[i - j + n - 1]:
+            continue
 
-            # Recur to place rest of the queens
-            solution_found = solve_n_queens(board, current_row + 1, number_of_queens) or solution_found
+        # Mark the column and diagonals as occupied
+        cols[j] = 1 
+        rightDiagonal[i + j] = 1
+        leftDiagonal[i - j + n - 1] = 1
+        
+        # Add the current column to the solution path
+        cur.append(j)
 
-            # Backtrack: remove the queen if it did not lead to a solution
-            board[current_row][column] = 0
+        # Recursively place queens on the next row
+        if placeQueens(i + 1, cols, leftDiagonal, rightDiagonal, cur):
+            return True  # If successful, return True
 
-    return solution_found
+        # Backtrack: Remove the queen and reset the markings
+        cur.pop()
+        cols[j] = 0
+        rightDiagonal[i + j] = 0
+        leftDiagonal[i - j + n - 1] = 0
 
+    # If no valid placement is found, return False
+    return False
 
-# ---------------- Main Program ----------------
-print("N-Queens Problem using Backtracking\n")
+# Main function to solve the N-Queens problem
+def nQueen(n):
+    # Arrays to track column and diagonal occupations
+    cols = [0] * n
+    leftDiagonal = [0] * (n * 2)
+    rightDiagonal = [0] * (n * 2)
+    
+    # List to store the positions of queens
+    cur = []
+    
+    # Initialize the board with '.' to represent empty cells
+    board = [['.' for _ in range(n)] for _ in range(n)]
 
-number_of_queens = int(input("Enter the number of queens: "))
+    # Try placing queens starting from the first row
+    if placeQueens(0, cols, leftDiagonal, rightDiagonal, cur):
+        # If successful, place queens on the board
+        for i in range(n):
+            board[i][cur[i]] = 'Q'
+        return board
+    else:
+        # If no solution is found, return None
+        return None
 
-# Create an empty NxN chessboard filled with 0
-board = []
-for i in range(number_of_queens):
-    board.append([0] * number_of_queens)
+# Function to print the board
+def printBoard(board):
+    if board:
+        # Print the board with queens placed
+        for row in board:
+            print(" ".join(row))
+    else:
+        # If no solution, notify the user
+        print("No solution exists.")
 
-# Place the first queen (for example at position [0][0])
-board[0][0] = 1
-print("\nThe first queen is placed at position (0, 0)\n")
+# Input for number of queens
+n = int(input("Enter the number of queens:\t"))
 
-# Solve for remaining queens
-if not solve_n_queens(board, 1, number_of_queens):
-    print("No solution exists for this configuration.")
+# Solve the N-Queens problem
+board = nQueen(n)
+
+# Print the result
+printBoard(board)
