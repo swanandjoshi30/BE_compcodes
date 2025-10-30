@@ -2,13 +2,13 @@
   🔍 SEO Meta Tags for Google & GitHub
   These help search engines index your repository better.
 -->
-<meta name="title" content="BE Computer Engineering Codes (Python) - DAA & BCT | Boss">
+<meta name="title" content="BE Computer Engineering Codes (Python) - DAA & BCT | swanand">
 <meta name="description" content="A complete collection of BE Computer Engineering codes in Python covering DAA (Design and Analysis of Algorithms) and BCT (Basic Computing Techniques). Perfect for students, beginners, and developers.">
-<meta name="keywords" content="BE Comp codes, BE Computer Engineering Python codes, DAA Python programs, BCT Python codes, Data Structures and Algorithms BE, Python algorithm collection, BE Comp Sem 5, Computer Engineering practicals, Swanand Joshi, Boss codes, GitHub repository, Python learning">
-<meta name="author" content="Boss">
+<meta name="keywords" content="BE Comp codes, BE Computer Engineering Python codes, DAA Python programs, BCT Python codes, Data Structures and Algorithms BE, Python algorithm collection, BE Comp Sem 7, Computer Engineering practicals, Swanand Joshi, swanand codes, GitHub repository, Python learning">
+<meta name="author" content="swanand">
 <meta name="robots" content="index, follow">
 
-# ⚡ BE Computer Engineering Codes (Python) – by Boss
+# ⚡ BE Computer Engineering Codes (Python) – by swanand
 
 A comprehensive collection of **BE Computer Engineering codes** written in **Python**, designed to help students, developers, and researchers understand the core concepts of **Data Structures, Algorithms, and Basic Computing Techniques**.  
 
@@ -30,7 +30,6 @@ A comprehensive collection of **BE Computer Engineering codes** written in **Pyt
 ✅ Fully-commented Python code  
 ✅ Clean and educational structure  
 ✅ Easy to execute and understand  
-✅ SEO-optimized for Google visibility  
 ✅ Ideal for beginners and BE students  
 
 ---
@@ -65,8 +64,8 @@ DAA Python Programs,
 BCT Python Codes,
 Design and Analysis of Algorithms BE,
 Python Algorithm Collection,
-BE Comp Sem 5 Codes,
-Boss BE Comp Repository,
+BE Comp Sem 7 Codes,
+swanand BE Comp Repository,
 Computer Engineering Practical Codes,
 Swanand Joshi Python Projects
 
@@ -81,13 +80,10 @@ Commit and push your changes
 
 Submit a pull request
 
-🧾 License
-This repository currently has no license.
-To allow others to use and share your code responsibly, add a license (e.g., MIT License).
 
 👨‍💻 Author & Maintainer
-Boss (Contributor & Maintainer)
-📧 Contact: [swanandjoshiofficial@gmail.com]
+swanand (Contributor & Maintainer)
+📧 Contact: [swanandofficial@gmail.com]
 💻 GitHub: @swanandjoshi30
 
 ⭐ Support the Project
