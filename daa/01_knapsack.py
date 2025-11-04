@@ -1,56 +1,38 @@
-# Function to solve 0-1 Knapsack Problem using Dynamic Programming
-def knapsack(values, weights, capacity):
-    number_of_items = len(values)
+# 0-1 Knapsack Problem using Dynamic Programming (with user input)
 
-    # Create a 2D list (table) to store maximum value for each subproblem
-    dp_table = []
-    for i in range(number_of_items + 1):
-        dp_table.append([0] * (capacity + 1))
+def knapsack(weights, values, capacity):
+    n = len(values)
+    # Create DP table (n+1) x (capacity+1)
+    dp = [[0 for _ in range(capacity + 1)] for _ in range(n + 1)]
 
-    # Fill the table using bottom-up approach
-    for item_index in range(1, number_of_items + 1):
-        for current_capacity in range(1, capacity + 1):
-            current_weight = weights[item_index - 1]
-            current_value = values[item_index - 1]
-
-            # If the item can fit in the current capacity
-            if current_weight <= current_capacity:
-                # Option 1: Include the item
-                include_item = current_value + dp_table[item_index - 1][current_capacity - current_weight]
-
-                # Option 2: Exclude the item
-                exclude_item = dp_table[item_index - 1][current_capacity]
-
-                # Take the better of the two options
-                dp_table[item_index][current_capacity] = max(include_item, exclude_item)
+    # Build the table bottom-up
+    for i in range(1, n + 1):
+        for w in range(1, capacity + 1):
+            if weights[i - 1] <= w:
+                dp[i][w] = max(values[i - 1] + dp[i - 1][w - weights[i - 1]], 
+                               dp[i - 1][w])
             else:
-                # If the item cannot fit, exclude it
-                dp_table[item_index][current_capacity] = dp_table[item_index - 1][current_capacity]
-
-    # The last cell of the table contains the maximum value
-    return dp_table[number_of_items][capacity]
+                dp[i][w] = dp[i - 1][w]
+    return dp[n][capacity]
 
 
-# ---------------- Main Program ----------------
-print("0-1 Knapsack Problem using Dynamic Programming\n")
-
-number_of_items = int(input("Enter the number of items: "))
+# -------------------------------
+# User Input Section
+# -------------------------------
+n = int(input("Enter number of items: "))
 
 values = []
 weights = []
 
-# Input values and weights of each item
-for i in range(number_of_items):
-    value = int(input(f"Enter the value of item {i + 1}: "))
-    weight = int(input(f"Enter the weight of item {i + 1}: "))
-    values.append(value)
-    weights.append(weight)
+print("\nEnter value and weight for each item:")
+for i in range(n):
+    v = int(input(f"  Value of item {i+1}: "))
+    w = int(input(f"  Weight of item {i+1}: "))
+    values.append(v)
+    weights.append(w)
 
-# Input knapsack capacity
-capacity = int(input("Enter the capacity of the knapsack: "))
+capacity = int(input("\nEnter maximum capacity of knapsack: "))
 
-# Function call
-maximum_value = knapsack(values, weights, capacity)
-
-# Output the result
-print("\nThe maximum value that can be obtained =", maximum_value)
+# Solve and show result
+max_value = knapsack(weights, values, capacity)
+print("\nMaximum value that can be carried in knapsack =", max_value)
